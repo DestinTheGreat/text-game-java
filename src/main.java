@@ -9,6 +9,7 @@ public class main {
 	}
 
 	public static String movement(double g) {
+	
 		if (g == 8)
 			return "You move Forward";
 
@@ -25,9 +26,17 @@ public class main {
 			return "Please Enter the Valid Number!";
 
 	}
-
-	public static void output(double g, String m) {
-		System.out.print(m);
+	public static void output(int inputint, String inputString) {
+		if (inputint == 8)
+			System.out.print(inputString);
+		else if (inputint == 6)
+			System.out.print(inputString);
+		else if (inputint == 4)
+			System.out.print(inputString);
+		else if (inputint == 2)
+			System.out.print(inputString);
+		else
+			System.out.print("You done goofed! Pick a right number!");
 	}
 
 }
