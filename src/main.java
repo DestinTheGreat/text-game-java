@@ -9,9 +9,9 @@ public class main {
 		int checkedans = checker(getInt);
 
 		String movementresult = movement(checkedans);
-		
+
 		System.out.println(movementresult);
-		
+
 		while(movementresult != "\nYou moved nowhere!"){
 			getInt = -250253540;
 			checkedans = checker(getInt);
@@ -19,6 +19,7 @@ public class main {
 			movementresult = movement(checkedans);
 			System.out.println(movementresult);
 		}
+
 	}
 	public static int checker(int getInt) {
 		while(getInt != 8 && getInt != 2 && getInt != 4 && getInt != 6 && getInt != -250253540)
@@ -30,9 +31,9 @@ public class main {
 		while(getInt == -250253540){
 			getInt = IO.getConsoleInt("\n\tEnter Number Here ");
 		}
-		
+
 		return getInt;
-		
+
 	}
 	public static String movement(int inputint) {
 		if (inputint == 8)
