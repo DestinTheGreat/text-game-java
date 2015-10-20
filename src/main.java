@@ -4,9 +4,12 @@ public class main {
 	static double back = 0;
 	static double forward = 0;
 	static double movementnumber = 0;
+	static boolean alert = false;
 	public static void main(String[] args) {
-		System.out.println("Enter:\n 8: For moving Forward\n 2: " + "For moving backwards\n "
-				+ "4: For Going left\n 6: For Going right \n ");
+		System.out.println("Enter:\n 2: For moving Forward"
+				+ "\n 4: " + "For moving backwards\n "
+				+ "6: For Going left\n "
+				+ "8: For Going right \n ");
 		double inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
 		double checkedans = checker(inputDouble);
 
@@ -14,8 +17,8 @@ public class main {
 
 		System.out.println(movementresult);
 
-		while(movementresult != "\nYou moved nowhere!"){
-			inputDouble = -250253540;
+		while(alert == false){
+			inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
 			checkedans = checker(inputDouble);
 			checkedans = checker(checkedans);
 			movementresult = movement(checkedans);
@@ -30,10 +33,6 @@ public class main {
 			inputDouble = 0;
 			inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
 		}
-		while(inputDouble == -250253540){
-			inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
-		}
-
 		return inputDouble;
 
 	}
