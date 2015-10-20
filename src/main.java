@@ -20,11 +20,12 @@ public class main {
 		while(alert == false){
 			inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
 			checkedans = checker(inputDouble);
-			checkedans = checker(checkedans);
 			movementresult = movement(checkedans);
 			System.out.println(movementresult);
 		}
 
+		if (movementnumber == 10)
+			alert = true;
 	}
 	public static double checker(double inputDouble) {
 		while(inputDouble != 8 && inputDouble != 2 && inputDouble != 4 && inputDouble != 6 && inputDouble != -250253540)
@@ -61,6 +62,10 @@ public class main {
 			movementnumber++;
 			return "\nYou moved nowhere!";
 		}
+	}
+	public static void level1() {
+		int number = (int)(Math.random() * 6) + 1; 
+		System.out.println("While you are traveling you encounter a troll");
 	}
 
 }
