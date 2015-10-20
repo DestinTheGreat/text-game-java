@@ -3,6 +3,7 @@ public class main {
 	static int right = 0;
 	static int back = 0;
 	static int forward = 0;
+	static int movementnumber = 0;
 	public static void main(String[] args) {
 		System.out.println("Enter:\n 8: For moving Forward\n 2: " + "For moving backwards\n "
 				+ "4: For Going left\n 6: For Going right \n ");
@@ -39,21 +40,26 @@ public class main {
 	public static String movement(int inputint) {
 		if (inputint == 8){
 			forward++;
+			movementnumber++;
 			return "\nYou move Forward";
 		}
 		else if (inputint == 6){
 			right++;
+			movementnumber++;
 			return "\nYou move to the right";
 		}
 		else if (inputint == 4){
 			left++;
+			movementnumber++;
 			return "\nYou move to the left";
 		}
 		else if (inputint == 2){
 			back++;
+			movementnumber++;
 			return "\nYou move backwards";
 		}
 		else{
+			movementnumber++;
 			return "\nYou moved nowhere!";
 		}
 	}
