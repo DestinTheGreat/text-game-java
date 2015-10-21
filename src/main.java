@@ -1,41 +1,56 @@
+import java.util.Scanner;
+
+
 public class main {
-	static double left = 0;
-	static double right = 0;
-	static double back = 0;
-	static double forward = 0;
-	static double movementnumber = 0;
+	static int left = 0;
+	static int right = 0;
+	static int back = 0;
+	static int forward = 0;
+
+	static int movementnumber = 0;
+	static int alertsetoff = 5;
 	static boolean alert = false;
+	static int levelnumber = 0;
+	static boolean alwaysfalse = false;
+	static double inputDouble;
+
 	public static void main(String[] args) {
 		System.out.println("Enter:\n 2: For moving Forward"
 				+ "\n 4: " + "For moving backwards\n "
 				+ "6: For Going left\n "
 				+ "8: For Going right \n ");
-		double inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
+		while(alwaysfalse == false){
+		input();
+		level();
+		}
+
+
+	}
+	public static double checker(double inputDouble) {
+		while(inputDouble != 8 && inputDouble != 2 && inputDouble != 4 && inputDouble != 6 && inputDouble != -250253540)
+		{
+			System.out.println("Error");
+			inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
+		}
+		return inputDouble;
+
+	}
+	public static boolean input(){
+		inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
 		double checkedans = checker(inputDouble);
 
 		String movementresult = movement(checkedans);
 
 		System.out.println(movementresult);
 
-		while(alert == false){
+		while (movementnumber != alertsetoff) {
 			inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
 			checkedans = checker(inputDouble);
 			movementresult = movement(checkedans);
 			System.out.println(movementresult);
 		}
-
-		if (movementnumber == 10)
-			alert = true;
-	}
-	public static double checker(double inputDouble) {
-		while(inputDouble != 8 && inputDouble != 2 && inputDouble != 4 && inputDouble != 6 && inputDouble != -250253540)
-		{
-			System.out.println("Error");
-			inputDouble = 0;
-			inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
-		}
-		return inputDouble;
-
+		alert = true;
+		return alert = true;
 	}
 	public static String movement(double checkedans) {
 		if (checkedans == 8){
@@ -63,9 +78,17 @@ public class main {
 			return "\nYou moved nowhere!";
 		}
 	}
-	public static void level1() {
-		int number = (int)(Math.random() * 6) + 1; 
-		System.out.println("While you are traveling you encounter a troll");
+	public static boolean level() {	
+		levelnumber++;
+		movementnumber = 0;
+		if (levelnumber == 1){
+			System.out.println("While you are traveling you encounter a troll");
+			return alert = false;
+		}
+		else {
+			System.out.println("While you are traveling you encounter a math problem");
+			return alert = false;
+		}
 	}
 
 }
