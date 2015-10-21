@@ -5,12 +5,11 @@ public class main {
 	static int forward = 0;
 
 	static int movementnumber = 0;
-	static int alertsetoff = 5;
+	static int alertsetoff = 2;
 	static boolean alert = false;
 
 	static String levelboss = "Giant";
 	static int levelnumber = 0;
-	static String inputfightingstring = "nothing";
 
 	static boolean alwaysfalse = false;
 	static double inputDouble;
@@ -97,12 +96,14 @@ public class main {
 		}
 	}
 	public static boolean level() {	
+		String result;
 		levelnumber++;
 		movementnumber = 0;
 		if (levelnumber == 1){
 			levelboss = "Giant";
 			System.out.println("While you are traveling you encounter a giant");
-			System.out.println(fighting());
+			result = fighting(IO.getConsoleString());
+			System.out.println(result);
 			return alert = false;
 
 		}
@@ -111,12 +112,10 @@ public class main {
 			return alert = false;
 		}
 	}
-	public static String fighting(){
-		inputfightingstring = IO.getConsoleString("\n\tEnter Your Weapon");
+	public static String fighting(String inputfightingstring){
 		String checkedansx = checkerfighting(inputfightingstring);
 
 		String fightingresult = fightingcalculation(checkedansx);
-
 
 		return fightingresult;
 	}
@@ -126,37 +125,36 @@ public class main {
 		{
 			System.out.println("Put A Listed Weapon");
 			inputfightingstring = IO.getConsoleString("\n\tEnter Your Weapon");
-			return inputfightingstring;
 		}
-		return "Error";
+		return inputfightingstring;
 
 	}
-	public static String fightingcalculation(String inputfightingstring) {
+	public static String fightingcalculation(String checkedansx) {
 		if (levelboss == "Centaur"){
-			if(inputfightingstring == "Sword")
+			if(checkedansx == "Sword")
 				return "You Win!";
-			else if(inputfightingstring == "Arrows")
+			else if(checkedansx == "Arrows")
 				return "You lost, You died by Arrows";
-			else if(inputfightingstring == "Club")
+			else if(checkedansx == "Club")
 				return "You died by the Centaur's Shortsword.";
 		}
 		else if (levelboss == "Goblins"){
-			if(inputfightingstring == "Sword")
+			if(checkedansx == "Sword")
 				return "You got cut down by a jagged Goblin Dagger";
-			else if(inputfightingstring == "Arrows")
+			else if(checkedansx == "Arrows")
 				return "You lost, the Goblin evaded the arrows to come up and kill you with a Goblin Dagger";
-			else if(inputfightingstring == "Club")
+			else if(checkedansx == "Club")
 				return "You Win!";
 		}
 		else if (levelboss == "Giants"){
-			if(inputfightingstring == "Sword")
+			if(checkedansx == "Sword")
 				return "You lost, died by the Giant's club!";
-			else if(inputfightingstring == "Arrows")
+			else if(checkedansx == "Arrows")
 				return "You Win";
-			else if(inputfightingstring == "Club")
+			else if(checkedansx == "Club")
 				return "You lost, died by the Giant's club!";
 		}
-		return inputfightingstring;
+		return checkedansx;
 
 	}
 }
