@@ -25,13 +25,13 @@ public class main {
 		System.out.println("\n");		
 
 		System.out.println("Instructions to Fight:");
-		System.out.println(" Sword: For Atacking with a Sword");
+		System.out.println(" Sword: For Attacking with a Sword");
 		System.out.println("\t Best for attacking Centaurs");
 
-		System.out.println(" Club: For Atacking with a Club");
+		System.out.println(" Club: For Attacking with a Club");
 		System.out.println("\t Best for attacking Goblins");
 
-		System.out.println(" Arrows: For Atacking with Arrows");
+		System.out.println(" Arrows: For Attacking with Arrows");
 		System.out.println("\t Best for attacking Giants");
 
 
@@ -148,7 +148,7 @@ public class main {
 		}
 		else if (levelboss == "Giants"){
 			if(checkedansx == "Sword")
-				return "You lost, died by the Giant's club!";
+				return "You lost, died by the Giant's Weapon!";
 			else if(checkedansx == "Arrows")
 				return "You Win";
 			else if(checkedansx == "Club")
