@@ -134,7 +134,7 @@ public class main {
 			if(checkedansx == "Sword")
 				return "You Win!";
 			else if(checkedansx == "Arrows")
-				return "You lost, You died by the Munster";
+				return "You lost, You died by the Munster!";
 			else if(checkedansx == "Club")
 				return "You died by the Centaur's Shortsword.";
 		}
