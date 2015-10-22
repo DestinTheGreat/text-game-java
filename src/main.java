@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class main {
 	static int left = 0;
 	static int right = 0;
@@ -11,6 +13,7 @@ public class main {
 	static String levelboss = "Giant";
 	static int levelnumber = 0;
 	static int lvl = 1;
+	static Random randomgenerator = new Random(); 
 	
 	static boolean alwaysfalse = false;
 	static double inputDouble;
@@ -102,18 +105,29 @@ public class main {
 		movementnumber = 0;
 		if (levelnumber == 1){
 			levelboss = "Giant";
-			System.out.println("While you are traveling you encounter a giant");
-			result = fighting(IO.getConsoleString());
+			System.out.println("\n While you are traveling you encounter a " + levelboss + "!");
+			result = fighting();
+			alertsetoff = randomgenerator.nextInt(7)+3;
 			System.out.println(result);
 			return alert = false;
 
 		}
+		else if (levelnumber == 2){
+			levelboss = "Centaur";
+			System.out.println("\n While you are traveling you encounter a " + levelboss + "!");
+			result = fighting();
+			System.out.println(result);
+			alertsetoff = randomgenerator.nextInt(6)+3;
+			return alert = false;
+
+		}
 		else {
-			System.out.println("While you are traveling you encounter a math problem");
+			System.out.println("\n While you are traveling you encounter a math problem");
 			return alert = false;
 		}
 	}
-	public static String fighting(String inputfightingstring){
+	public static String fighting(){
+		String inputfightingstring = IO.getConsoleString("\n\tEnter Your Weapon");
 		String checkedansx = checkerfighting(inputfightingstring);
 
 		String fightingresult = fightingcalculation(checkedansx);
@@ -149,11 +163,11 @@ public class main {
 		}
 		else if (levelboss.equals("Giant")){
 			if(checkedansx.equals("Sword"))
-				return "You lost, died by the Giant's Weapon!";
+				return "You lost, died by the Giant's Smash!";
 			else if(checkedansx.equals("Arrows"))
 				return "You Win";
 			else if(checkedansx.equals("Club"))
-				return "You lost, died by the Giant's club!";
+				return "You lost, died by the Giant's Club!";
 		}
 		return "ERROR FIGHTINGCALCULATION";
 
