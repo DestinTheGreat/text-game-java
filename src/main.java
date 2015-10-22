@@ -117,7 +117,7 @@ public class main {
 			System.out.println("\n While you are traveling you encounter a " + levelboss + "!");
 			result = fighting();
 			System.out.println(result);
-			alertsetoff = randomgenerator.nextInt(6)+3;
+			alertsetoff = randomgenerator.nextInt(4)+1;
 			return alert = false;
 
 		}
