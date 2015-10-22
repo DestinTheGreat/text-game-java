@@ -10,7 +10,8 @@ public class main {
 
 	static String levelboss = "Giant";
 	static int levelnumber = 0;
-
+	static int lvl = 1;
+	
 	static boolean alwaysfalse = false;
 	static double inputDouble;
 
@@ -121,7 +122,7 @@ public class main {
 	}
 	public static String checkerfighting(String inputfightingstring) {
 		
-		while(inputfightingstring != "Sword" && inputfightingstring != "Club" && inputfightingstring != "Arrows")
+		while(!inputfightingstring.equals("Sword") && !inputfightingstring.equals("Club") && !inputfightingstring.equals("Arrows"))
 		{
 			System.out.println("Put A Listed Weapon");
 			inputfightingstring = IO.getConsoleString("\n\tEnter Your Weapon");
@@ -130,31 +131,31 @@ public class main {
 
 	}
 	public static String fightingcalculation(String checkedansx) {
-		if (levelboss == "Centaur"){
-			if(checkedansx == "Sword")
+		if (levelboss.equals("Centaur")){
+			if(checkedansx.equals("Sword"))
 				return "You Win!";
-			else if(checkedansx == "Arrows")
+			else if(checkedansx.equals("Arrows"))
 				return "You lost, You died by the Munster!";
-			else if(checkedansx == "Club")
+			else if(checkedansx.equals("Club"))
 				return "You died by the Centaur's Shortsword.";
 		}
-		else if (levelboss == "Goblins"){
-			if(checkedansx == "Sword")
+		else if (levelboss.equals("Goblins")){
+			if(checkedansx.equals("Sword"))
 				return "You got cut down by a jagged Goblin Dagger";
-			else if(checkedansx == "Arrows")
+			else if(checkedansx.equals("Arrows"))
 				return "You lost, the Goblin evaded the arrows to come up and kill you with a Goblin Dagger";
-			else if(checkedansx == "Club")
+			else if(checkedansx.equals("Club"))
 				return "You Win!";
 		}
-		else if (levelboss == "Giants"){
-			if(checkedansx == "Sword")
+		else if (levelboss.equals("Giant")){
+			if(checkedansx.equals("Sword"))
 				return "You lost, died by the Giant's Weapon!";
-			else if(checkedansx == "Arrows")
+			else if(checkedansx.equals("Arrows"))
 				return "You Win";
-			else if(checkedansx == "Club")
+			else if(checkedansx.equals("Club"))
 				return "You lost, died by the Giant's club!";
 		}
-		return checkedansx;
+		return "ERROR FIGHTINGCALCULATION";
 
 	}
 }
