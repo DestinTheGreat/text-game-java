@@ -121,6 +121,14 @@ public class main {
 			return alert = false;
 
 		}
+		else if (levelnumber == 3){
+			levelboss = "Goblins";
+			System.out.println("\n While you are traveling you encounter a " + levelboss + "!");
+			result = fighting();
+			System.out.println(result);
+			alertsetoff = randomgenerator.nextInt(4)+1;
+			return alert = false;
+		}
 		else {
 			System.out.println("\n While you are traveling you encounter a math problem");
 			return alert = false;
