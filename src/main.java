@@ -11,6 +11,8 @@ public class main {
 	static boolean alert = false;
 
 	static String levelboss = "Giant";
+	static int bosshealth = 50;
+	static int characterhealth = 100;
 	static int levelnumber = 0;
 	static int lvlweapon = 1;
 	static int lvlboss = 1;
