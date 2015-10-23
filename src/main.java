@@ -12,9 +12,11 @@ public class main {
 
 	static String levelboss = "Giant";
 	static int levelnumber = 0;
-	static int lvl = 1;
+	static int lvlweapon = 1;
+	static int lvlboss = 1;
+
 	static Random randomgenerator = new Random(); 
-	
+
 	static boolean alwaysfalse = false;
 	static double inputDouble;
 
@@ -106,6 +108,7 @@ public class main {
 		if (levelnumber == 1){
 			levelboss = "Giant";
 			System.out.println("\n While you are traveling you encounter a " + levelboss + "!");
+			System.out.println("Boss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
 			result = fighting();
 			alertsetoff = randomgenerator.nextInt(7)+3;
 			System.out.println(result);
@@ -115,6 +118,7 @@ public class main {
 		else if (levelnumber == 2){
 			levelboss = "Centaur";
 			System.out.println("\n While you are traveling you encounter a " + levelboss + "!");
+			System.out.println("Boss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
 			result = fighting();
 			System.out.println(result);
 			alertsetoff = randomgenerator.nextInt(4)+1;
@@ -123,7 +127,9 @@ public class main {
 		}
 		else if (levelnumber == 3){
 			levelboss = "Goblins";
+			lvlboss++;
 			System.out.println("\n While you are traveling you encounter a " + levelboss + "!");
+			System.out.println("Boss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
 			result = fighting();
 			System.out.println(result);
 			alertsetoff = randomgenerator.nextInt(4)+1;
@@ -143,7 +149,7 @@ public class main {
 		return fightingresult;
 	}
 	public static String checkerfighting(String inputfightingstring) {
-		
+
 		while(!inputfightingstring.equals("Sword") && !inputfightingstring.equals("Club") && !inputfightingstring.equals("Arrows"))
 		{
 			System.out.println("Put A Listed Weapon");
@@ -153,27 +159,57 @@ public class main {
 
 	}
 	public static String fightingcalculation(String checkedansx) {
+		int fightingchance = 0;
+		fightingchance = randomgenerator.nextInt(lvlboss)+lvlweapon;
+
 		if (levelboss.equals("Centaur")){
-			if(checkedansx.equals("Sword"))
+			if(checkedansx.equals("Sword") && lvlboss <= lvlweapon){
+				lvlweapon++;
 				return "You Win!";
+			}
+			if(checkedansx.equals("Sword") && lvlboss > lvlweapon){
+				if (fightingchance == 1){
+					return "You Win! Barely Won!";
+				}
+				else
+					return "You Lose! Weapon too weak!";
+			}
 			else if(checkedansx.equals("Arrows"))
 				return "You lost, You died by the Munster!";
 			else if(checkedansx.equals("Club"))
 				return "You died by the Centaur's Shortsword.";
 		}
 		else if (levelboss.equals("Goblins")){
-			if(checkedansx.equals("Sword"))
+			if(checkedansx.equals("Sword")){
 				return "You got cut down by a jagged Goblin Dagger";
+			}
 			else if(checkedansx.equals("Arrows"))
 				return "You lost, the Goblin evaded the arrows to come up and kill you with a Goblin Dagger";
-			else if(checkedansx.equals("Club"))
+			else if(checkedansx.equals("Club") && lvlboss <= lvlweapon){
+				lvlweapon++;
 				return "You Win!";
+			}
+			else if(checkedansx.equals("Club") && lvlboss > lvlweapon){
+				if (fightingchance == 1){
+					return "You Win! Barely Won!";
+				}
+				else
+					return "You Lose! Weapon too weak!";			}
 		}
 		else if (levelboss.equals("Giant")){
-			if(checkedansx.equals("Sword"))
+			if(checkedansx.equals("Sword")){
 				return "You lost, died by the Giant's Smash!";
-			else if(checkedansx.equals("Arrows"))
+			}
+			else if(checkedansx.equals("Arrows") && lvlboss <= lvlweapon){
+				lvlweapon++;
 				return "You Win";
+			}
+			else if(checkedansx.equals("Arrows") && lvlboss > lvlweapon){
+				if (fightingchance == 1){
+					return "You Win! Barely Won!";
+				}
+				else
+					return "You Lose! Weapon too weak!";			}
 			else if(checkedansx.equals("Club"))
 				return "You lost, died by the Giant's Club!";
 		}
