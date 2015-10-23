@@ -7,7 +7,7 @@ public class main {
 	static int forward = 0;
 
 	static int movementnumber = 0;
-	static int alertsetoff = 2;
+	static int alertsetoff = 3;
 	static boolean alert = false;
 
 	static String levelboss = "Giant";
@@ -107,18 +107,19 @@ public class main {
 		movementnumber = 0;
 		if (levelnumber == 1){
 			levelboss = "Giant";
-			System.out.println("\n While you are traveling you encounter a " + levelboss + "!");
-			System.out.println("Boss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
+			System.out.println("\nWhile you are traveling you encounter a " + levelboss + "!");
+			System.out.println("\nBoss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
 			result = fighting();
-			alertsetoff = randomgenerator.nextInt(7)+3;
+			alertsetoff = randomgenerator.nextInt(4)+1;
 			System.out.println(result);
 			return alert = false;
 
 		}
 		else if (levelnumber == 2){
 			levelboss = "Centaur";
-			System.out.println("\n While you are traveling you encounter a " + levelboss + "!");
-			System.out.println("Boss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
+			lvlboss++;
+			System.out.println("\nWhile you are traveling you encounter a " + levelboss + "!");
+			System.out.println("\nBoss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
 			result = fighting();
 			System.out.println(result);
 			alertsetoff = randomgenerator.nextInt(4)+1;
@@ -127,16 +128,16 @@ public class main {
 		}
 		else if (levelnumber == 3){
 			levelboss = "Goblins";
-			lvlboss++;
-			System.out.println("\n While you are traveling you encounter a " + levelboss + "!");
-			System.out.println("Boss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
+			lvlboss+=2;
+			System.out.println("\nWhile you are traveling you encounter a " + levelboss + "!");
+			System.out.println("\nBoss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
 			result = fighting();
 			System.out.println(result);
 			alertsetoff = randomgenerator.nextInt(4)+1;
 			return alert = false;
 		}
 		else {
-			System.out.println("\n While you are traveling you encounter a math problem");
+			System.out.println("\nWhile you are traveling you encounter a math problem");
 			return alert = false;
 		}
 	}
