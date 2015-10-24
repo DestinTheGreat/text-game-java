@@ -19,7 +19,7 @@ public class main {
 
 	static Random randomgenerator = new Random(); 
 
-	static boolean alwaysfalse = false;
+	static boolean togostatus = false;
 	static double inputDouble;
 
 	public static void main(String[] args) {
@@ -44,7 +44,7 @@ public class main {
 
 
 		// Instructions End
-		while(alwaysfalse == false){
+		while(togostatus == false){
 			input();
 			level();
 		}
@@ -60,6 +60,20 @@ public class main {
 		return inputDouble;
 
 	}
+	public static String randomdrop(){
+		int randomdropitem = randomgenerator.nextInt(8)+1;
+		if (randomdropitem == 1){
+			lvlweapon++;
+			System.out.println("\nYou found a manual page, Weapon Level is now : " + lvlweapon);
+			return null;
+		}
+		else if (randomdropitem == 2){
+			lvlweapon++;
+			System.out.println("\nYou found a manual page, Weapon Level is now : " + lvlweapon);
+			return null;
+		}
+		return null;
+	}
 	public static boolean input(){
 		inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
 		double checkedans = checker(inputDouble);
@@ -67,6 +81,8 @@ public class main {
 		String movementresult = movement(checkedans);
 
 		System.out.println(movementresult);
+
+		randomdrop();
 
 		while (movementnumber != alertsetoff) {
 			inputDouble = IO.getConsoleDouble("\n\tEnter Number Here ");
@@ -119,7 +135,7 @@ public class main {
 		}
 		else if (levelnumber == 2){
 			levelboss = "Centaur";
-			lvlboss++;
+			lvlboss+=2;
 			System.out.println("\nWhile you are traveling you encounter a " + levelboss + "!");
 			System.out.println("\nBoss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
 			result = fighting();
@@ -168,53 +184,71 @@ public class main {
 		if (levelboss.equals("Centaur")){
 			if(checkedansx.equals("Sword") && lvlboss <= lvlweapon){
 				lvlweapon++;
-				return "You Win!";
+				return "\nYou Win!";
 			}
 			if(checkedansx.equals("Sword") && lvlboss > lvlweapon){
 				if (fightingchance == 1){
-					return "You Win! Barely Won!";
+					lvlweapon++;
+					return "\nYou Win! Barely Won!";
 				}
 				else
-					return "You Lose! Weapon too weak!";
+					togostatus = true;
+				return "\nYou Lose! Weapon too weak!";
 			}
-			else if(checkedansx.equals("Arrows"))
-				return "You lost, You died by the Munster!";
-			else if(checkedansx.equals("Club"))
-				return "You died by the Centaur's Shortsword.";
+			else if(checkedansx.equals("Arrows")){
+				togostatus = true;
+				return "\nYou lost, You died by the Munster!";
+			}
+			else if(checkedansx.equals("Club")){
+				togostatus = true;
+				return "\nYou died by the Centaur's Shortsword.";
+			}
 		}
 		else if (levelboss.equals("Goblins")){
 			if(checkedansx.equals("Sword")){
-				return "You got cut down by a jagged Goblin Dagger";
+				togostatus = true;
+				return "\nYou got cut down by a jagged Goblin Dagger";
 			}
-			else if(checkedansx.equals("Arrows"))
-				return "You lost, the Goblin evaded the arrows to come up and kill you with a Goblin Dagger";
+			else if(checkedansx.equals("Arrows")){
+				togostatus = true;
+				return "\nYou lost, the Goblin evaded the arrows to come up and kill you with a Goblin Dagger";
+			}
 			else if(checkedansx.equals("Club") && lvlboss <= lvlweapon){
 				lvlweapon++;
-				return "You Win!";
+				return "\nYou Win!";
 			}
 			else if(checkedansx.equals("Club") && lvlboss > lvlweapon){
 				if (fightingchance == 1){
-					return "You Win! Barely Won!";
+					return "\nYou Win! Barely Won!";
 				}
-				else
-					return "You Lose! Weapon too weak!";			}
+				else {
+					togostatus = true;
+					return "\nYou Lose! Weapon too weak!";	
+				}
+			}
 		}
 		else if (levelboss.equals("Giant")){
 			if(checkedansx.equals("Sword")){
-				return "You lost, died by the Giant's Smash!";
+				togostatus = true;
+				return "\nYou lost, died by the Giant's Smash!";
 			}
 			else if(checkedansx.equals("Arrows") && lvlboss <= lvlweapon){
 				lvlweapon++;
-				return "You Win";
+				return "\nYou Win";
 			}
 			else if(checkedansx.equals("Arrows") && lvlboss > lvlweapon){
 				if (fightingchance == 1){
-					return "You Win! Barely Won!";
+					return "\nYou Win! Barely Won!";
 				}
-				else
-					return "You Lose! Weapon too weak!";			}
-			else if(checkedansx.equals("Club"))
-				return "You lost, died by the Giant's Club!";
+				else{
+					togostatus = true;
+					return "\nYou Lose! Weapon too weak!";	
+				}
+			}
+			else if(checkedansx.equals("Club")){
+				togostatus = true;
+				return "\nYou lost, died by the Giant's Club!";
+			}
 		}
 		return "ERROR FIGHTINGCALCULATION";
 
