@@ -11,11 +11,17 @@ public class main {
 	static boolean alert = false;
 
 	static String levelboss = "Giant";
-	static int bosshealth = 50;
+	static int lvlboss = 5;
+	static int bosshealth = lvlboss * 10;
 	static int characterhealth = 100;
 	static int levelnumber = 0;
-	static int lvlweapon = 1;
-	static int lvlboss = 1;
+	static int lvlweapon = 5;
+	static int weapondmg = lvlweapon * 10;
+
+	static int healthpotion = 1;
+	static int attackpotion = 1;
+	static int magicrunes = 1;
+
 
 	static Random randomgenerator = new Random(); 
 
@@ -44,6 +50,14 @@ public class main {
 
 
 		// Instructions End
+
+		// Inventory
+		System.out.println("\n");		
+		System.out.println("Starting Inventory");
+		System.out.println(" Health Potions : " + healthpotion);		
+		System.out.println(" Attack Potions : " + attackpotion);		
+		System.out.println(" Magical Runes : " + magicrunes);		
+
 		while(togostatus == false){
 			input();
 			level();
@@ -161,9 +175,9 @@ public class main {
 	}
 	public static String fighting(){
 		String inputfightingstring = IO.getConsoleString("\n\tEnter Your Weapon");
-		String checkedansx = checkerfighting(inputfightingstring);
+		String checkedansfighting = checkerfighting(inputfightingstring);
 
-		String fightingresult = fightingcalculation(checkedansx);
+		String fightingresult = fightingcalculation(checkedansfighting);
 
 		return fightingresult;
 	}
@@ -178,16 +192,31 @@ public class main {
 
 	}
 	public static String fightingcalculation(String checkedansx) {
+		weapondmg = lvlweapon * 10;
+		
 		int fightingchance = 0;
+		
 		fightingchance = randomgenerator.nextInt(lvlboss)+lvlweapon;
 
 		if (levelboss.equals("Centaur")){
 			if(checkedansx.equals("Sword") && lvlboss <= lvlweapon){
+				while (bosshealth > 0){
+					System.out.println("\nBoss Health : " + bosshealth);
+					System.out.println("You inflicted : " + weapondmg + " damage");
+
+					bosshealth = bosshealth - weapondmg;
+				}
 				lvlweapon++;
-				return "\nYou Win!";
+				return "\nYou Won!";
 			}
 			if(checkedansx.equals("Sword") && lvlboss > lvlweapon){
 				if (fightingchance == 1){
+					while (bosshealth > 0){
+						System.out.println("\nBoss Health : " + bosshealth);
+						System.out.println("You inflicted : " + weapondmg + " damage");
+						
+						bosshealth = bosshealth - weapondmg;
+					}
 					lvlweapon++;
 					return "\nYou Win! Barely Won!";
 				}
@@ -214,12 +243,27 @@ public class main {
 				return "\nYou lost, the Goblin evaded the arrows to come up and kill you with a Goblin Dagger";
 			}
 			else if(checkedansx.equals("Club") && lvlboss <= lvlweapon){
+				while (bosshealth > 0){
+					System.out.println("\nBoss Health : " + bosshealth);
+					System.out.println("You inflicted : " + weapondmg + " damage");
+					
+					bosshealth = bosshealth - weapondmg;
+
+				}
 				lvlweapon++;
 				return "\nYou Win!";
 			}
 			else if(checkedansx.equals("Club") && lvlboss > lvlweapon){
 				if (fightingchance == 1){
-					return "\nYou Win! Barely Won!";
+					while (bosshealth > 0){
+						System.out.println("\nBoss Health : " + bosshealth);
+						System.out.println("You inflicted : " + weapondmg + " damage");
+
+						bosshealth = bosshealth - weapondmg;
+
+					}
+					lvlweapon++;
+					return "\nYou Win!";
 				}
 				else {
 					togostatus = true;
@@ -233,12 +277,25 @@ public class main {
 				return "\nYou lost, died by the Giant's Smash!";
 			}
 			else if(checkedansx.equals("Arrows") && lvlboss <= lvlweapon){
+				while (bosshealth > 0){
+					System.out.println("\nBoss Health : " + bosshealth);
+					System.out.println("You inflicted : " + weapondmg + " damage");
+					
+					bosshealth = bosshealth - weapondmg;
+				}
 				lvlweapon++;
 				return "\nYou Win";
 			}
 			else if(checkedansx.equals("Arrows") && lvlboss > lvlweapon){
 				if (fightingchance == 1){
-					return "\nYou Win! Barely Won!";
+					while (bosshealth > 0){
+						System.out.println("\nBoss Health : " + bosshealth);
+						System.out.println("\nYou inflicted : " + weapondmg);
+						bosshealth = bosshealth - weapondmg;
+
+					}
+					lvlweapon++;
+					return "\n You won!";
 				}
 				else{
 					togostatus = true;
