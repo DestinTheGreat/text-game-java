@@ -202,7 +202,7 @@ public class main {
 			if(checkedansx.equals("Sword") && lvlboss <= lvlweapon){
 				while (bosshealth > 0){
 					System.out.println("\nBoss Health : " + bosshealth);
-					System.out.println("You inflicted : " + weapondmg + " damage");
+					System.out.println("\nYou inflicted : " + weapondmg + " damage");
 
 					bosshealth = bosshealth - weapondmg;
 				}
@@ -213,7 +213,7 @@ public class main {
 				if (fightingchance == 1){
 					while (bosshealth > 0){
 						System.out.println("\nBoss Health : " + bosshealth);
-						System.out.println("You inflicted : " + weapondmg + " damage");
+						System.out.println("\nYou inflicted : " + weapondmg + " damage");
 						
 						bosshealth = bosshealth - weapondmg;
 					}
@@ -245,7 +245,7 @@ public class main {
 			else if(checkedansx.equals("Club") && lvlboss <= lvlweapon){
 				while (bosshealth > 0){
 					System.out.println("\nBoss Health : " + bosshealth);
-					System.out.println("You inflicted : " + weapondmg + " damage");
+					System.out.println("\nYou inflicted : " + weapondmg + " damage");
 					
 					bosshealth = bosshealth - weapondmg;
 
@@ -257,7 +257,7 @@ public class main {
 				if (fightingchance == 1){
 					while (bosshealth > 0){
 						System.out.println("\nBoss Health : " + bosshealth);
-						System.out.println("You inflicted : " + weapondmg + " damage");
+						System.out.println("\nYou inflicted : " + weapondmg + " damage");
 
 						bosshealth = bosshealth - weapondmg;
 
@@ -279,7 +279,7 @@ public class main {
 			else if(checkedansx.equals("Arrows") && lvlboss <= lvlweapon){
 				while (bosshealth > 0){
 					System.out.println("\nBoss Health : " + bosshealth);
-					System.out.println("You inflicted : " + weapondmg + " damage");
+					System.out.println("\nYou inflicted : " + weapondmg + " damage");
 					
 					bosshealth = bosshealth - weapondmg;
 				}
