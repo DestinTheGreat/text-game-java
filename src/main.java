@@ -308,6 +308,5 @@ public class main {
 			}
 		}
 		return "ERROR FIGHTINGCALCULATION";
-
 	}
 }
