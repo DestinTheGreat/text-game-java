@@ -148,6 +148,7 @@ public class main {
 
 		}
 		else if (levelnumber == 2){
+			bosshealth = 50;
 			levelboss = "Centaur";
 			lvlboss+=2;
 			System.out.println("\nWhile you are traveling you encounter a " + levelboss + "!");
@@ -159,8 +160,9 @@ public class main {
 
 		}
 		else if (levelnumber == 3){
+			bosshealth = 50;
 			levelboss = "Goblins";
-			lvlboss+=2;
+			lvlboss++;
 			System.out.println("\nWhile you are traveling you encounter a " + levelboss + "!");
 			System.out.println("\nBoss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
 			result = fighting();
@@ -193,9 +195,9 @@ public class main {
 	}
 	public static String fightingcalculation(String checkedansx) {
 		weapondmg = lvlweapon * 10;
-		
+
 		int fightingchance = 0;
-		
+
 		fightingchance = randomgenerator.nextInt(lvlboss)+lvlweapon;
 
 		if (levelboss.equals("Centaur")){
@@ -214,7 +216,7 @@ public class main {
 					while (bosshealth > 0){
 						System.out.println("\nBoss Health : " + bosshealth);
 						System.out.println("\nYou inflicted : " + weapondmg + " damage");
-						
+
 						bosshealth = bosshealth - weapondmg;
 					}
 					lvlweapon++;
@@ -246,7 +248,7 @@ public class main {
 				while (bosshealth > 0){
 					System.out.println("\nBoss Health : " + bosshealth);
 					System.out.println("\nYou inflicted : " + weapondmg + " damage");
-					
+
 					bosshealth = bosshealth - weapondmg;
 
 				}
@@ -280,7 +282,7 @@ public class main {
 				while (bosshealth > 0){
 					System.out.println("\nBoss Health : " + bosshealth);
 					System.out.println("\nYou inflicted : " + weapondmg + " damage");
-					
+
 					bosshealth = bosshealth - weapondmg;
 				}
 				lvlweapon++;
@@ -292,7 +294,6 @@ public class main {
 						System.out.println("\nBoss Health : " + bosshealth);
 						System.out.println("\nYou inflicted : " + weapondmg);
 						bosshealth = bosshealth - weapondmg;
-
 					}
 					lvlweapon++;
 					return "\n You won!";
