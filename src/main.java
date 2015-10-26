@@ -139,6 +139,9 @@ public class main {
 		movementnumber = 0;
 		if (levelnumber == 1){
 			levelboss = "Giant";
+			lvlboss = 5;
+			bosshealth = lvlboss * 10;
+			
 			System.out.println("\nWhile you are traveling you encounter a " + levelboss + "!");
 			System.out.println("\nBoss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
 			result = fighting();
@@ -148,9 +151,9 @@ public class main {
 
 		}
 		else if (levelnumber == 2){
-			bosshealth = 50;
 			levelboss = "Centaur";
 			lvlboss+=2;
+			bosshealth = lvlboss * 10;
 			System.out.println("\nWhile you are traveling you encounter a " + levelboss + "!");
 			System.out.println("\nBoss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
 			result = fighting();
@@ -160,9 +163,9 @@ public class main {
 
 		}
 		else if (levelnumber == 3){
-			bosshealth = 50;
-			levelboss = "Goblins";
 			lvlboss++;
+			bosshealth = lvlboss * 10;
+			levelboss = "Goblins";
 			System.out.println("\nWhile you are traveling you encounter a " + levelboss + "!");
 			System.out.println("\nBoss : " + lvlboss + " " + "Your Level Weapon : " + lvlweapon);
 			result = fighting();
@@ -197,9 +200,9 @@ public class main {
 		weapondmg = lvlweapon * 10;
 
 		int fightingchance = 0;
-
+		boolean fightingchanceresult = false;
 		fightingchance = randomgenerator.nextInt(lvlboss)+lvlweapon;
-
+		
 		if (levelboss.equals("Centaur")){
 			if(checkedansx.equals("Sword") && lvlboss <= lvlweapon){
 				while (bosshealth > 0){
@@ -212,7 +215,7 @@ public class main {
 				return "\nYou Won!";
 			}
 			if(checkedansx.equals("Sword") && lvlboss > lvlweapon){
-				if (fightingchance == 1){
+				if (fightingchanceresult = false ){
 					while (bosshealth > 0){
 						System.out.println("\nBoss Health : " + bosshealth);
 						System.out.println("\nYou inflicted : " + weapondmg + " damage");
@@ -256,7 +259,7 @@ public class main {
 				return "\nYou Win!";
 			}
 			else if(checkedansx.equals("Club") && lvlboss > lvlweapon){
-				if (fightingchance == 1){
+				if (fightingchanceresult = false ){
 					while (bosshealth > 0){
 						System.out.println("\nBoss Health : " + bosshealth);
 						System.out.println("\nYou inflicted : " + weapondmg + " damage");
@@ -289,7 +292,7 @@ public class main {
 				return "\nYou Win";
 			}
 			else if(checkedansx.equals("Arrows") && lvlboss > lvlweapon){
-				if (fightingchance == 1){
+				if (fightingchanceresult = false ){
 					while (bosshealth > 0){
 						System.out.println("\nBoss Health : " + bosshealth);
 						System.out.println("\nYou inflicted : " + weapondmg);
