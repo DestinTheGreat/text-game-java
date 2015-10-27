@@ -202,6 +202,9 @@ public class main {
 		int fightingchance = 0;
 		boolean fightingchanceresult = false;
 		fightingchance = randomgenerator.nextInt(lvlboss)+lvlweapon;
+		if (fightingchance == 1){
+			fightingchanceresult = false;
+		}
 		
 		if (levelboss.equals("Centaur")){
 			if(checkedansx.equals("Sword") && lvlboss <= lvlweapon){
