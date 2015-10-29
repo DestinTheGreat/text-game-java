@@ -1,10 +1,12 @@
 import java.util.Random;
 
 public class main {
+/*
 	static String username = IO.getConsoleString("Please Create Your Username");
 	static String password = IO.getConsoleString("Please Create Your Password");
 	static String userNameCorrect = IO.getConsoleString("Please enter your username");
 	static String passWordCorrect = ("Please enter your password");
+*/
 	static int left = 0;
 	static int right = 0;
 	static int back = 0;
@@ -70,7 +72,7 @@ public class main {
 			input();
 			level();
 			
-		
+/*		
 		while (!userNameCorrect.equals(username) || !userNameCorrect.equals(password)){
 			System.out.print("Correct information. Proceed.");
 		}
@@ -79,7 +81,7 @@ public class main {
 		
 
 	}
-
+*/
 	public static double checker(double inputDouble) {
 		while(inputDouble != 8 && inputDouble != 2 && inputDouble != 4 && inputDouble != 6)
 		{
